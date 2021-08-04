@@ -3,9 +3,9 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 300;
-  src: local(''),
-       url(../fonts/montserrat-v15-latin_cyrillic-300.woff2) format('woff2'), /* Super Modern Browsers */
-       url(../fonts/montserrat-v15-latin_cyrillic-300.woff) format('woff'); /* Modern Browsers */
+  src:
+       url('../fonts/montserrat-v15-latin_cyrillic-300.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/montserrat-v15-latin_cyrillic-300.woff') format('woff'); /* Modern Browsers */
 }
 
 /* montserrat-regular - latin_cyrillic */
@@ -13,8 +13,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local(''),
-       url('../fonts/montserrat-v15-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/montserrat-v15-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/montserrat-v15-latin_cyrillic-regular.woff') format('woff'); /* Modern Browsers */
 }
 
@@ -23,8 +22,7 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  src: local(''),
-       url('../fonts/montserrat-v15-latin_cyrillic-500.woff2') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/montserrat-v15-latin_cyrillic-500.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/montserrat-v15-latin_cyrillic-500.woff') format('woff'); /* Modern Browsers */
 }
 
@@ -33,18 +31,8 @@
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  src: local(''),
-       url('../fonts/montserrat-v15-latin_cyrillic-600.woff2') format('woff2'), /* Super Modern Browsers */
+  src: url('../fonts/montserrat-v15-latin_cyrillic-600.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/montserrat-v15-latin_cyrillic-600.woff') format('woff'); /* Modern Browsers */
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 800;
-  src: local(''),
-       url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/Montserrat-ExtraBold.woff') format('woff'); /* Modern Browsers */
 }
 
 * {
@@ -104,6 +92,7 @@ textarea {
 .section-heading {
   font-size: 48px;
   line-height: 60px;
+<<<<<<< HEAD
   font-weight: 800;
   color: #000000;
   opacity: 0.6;
@@ -112,6 +101,10 @@ textarea {
 .section__higlighted
 {
   color: #25476D;
+=======
+  font-weight: 600;
+  color: #646464;
+>>>>>>> 6cc1796 (add project files)
 }
 
 
@@ -282,7 +275,7 @@ textarea {
   padding-left: 10px;
   padding-top: 7px;
   padding-bottom: 7px;
-  padding-right: 450px;
+  padding-right: 433px;
   border-radius: 10px;
   background-color: #FFFFFF;
   font-size: 14px;
@@ -535,15 +528,29 @@ textarea {
   margin-bottom: 50px;
 }
 
-.section-number__title {
+.section-numbers__title-group {
+  display: flex;
+  align-items: center;
   width: 30%;
-  font-size: 35px;
+}
+
+.section-number__title {
+  margin-right: 10px;
+  font-size: 40px;
+  line-height: 40px;
   font-weight: 600;
   color: #000000;
 }
 
-.section-number__title > span {
+.section-number__title + span {
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 400;
   color: #e85032;
+  opacity: 0;
+  transform: translateY(-3px);
+  transition: opacity 1s ease-in-out;
+  transition-delay: .2s;
 }
 
 .section-number__description {

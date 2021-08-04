@@ -1,66 +1,57 @@
 (() => {
-  document.addEventListener('DOMContentLoaded', () => {
 
-    function counter(maxValue, countDisplay) {
-      let value;
+  function counter(maxValue, countDisplay, speed, time) {
+    let value = 0;
+    countDisplay.textContent = value;
+    let step = (maxValue / (time / speed));
 
-      countDisplay.textContent = '1';
+    let timerId = setInterval(() => {
+      if(value >= maxValue * 0.7) {
+        clearInterval(timerId);
 
-      let timerId = setInterval(() => {
-        value = +countDisplay.textContent;
+        timerId = setInterval(() => {
+          if (value >= maxValue) {
+            clearInterval(timerId);
+            countDisplay.textContent = maxValue;
+            
+            showPlus(countDisplay);
+            return;
+          }
 
-        if (value === Math.floor(maxValue * 0.8)) {
-          clearTimeout(timerId);
+          countDisplay.textContent = Math.round(value);
+          value +=step;
+        }, speed * 3);
+      }
 
-          timerId = setInterval(() => {
-            value = +countDisplay.textContent;
-
-            if (value === Math.floor(maxValue * 0.95)) {
-              clearTimeout(timerId);
-
-              timerId = setInterval(() => {
-                value = +countDisplay.textContent;
-
-                if (value === maxValue) {
-                  clearTimeout(timerId);
-
-                  return;
-                }
-
-                countDisplay.textContent = String(value + 1);
-              }, 15000 / maxValue);
-            }
-
-            countDisplay.textContent = String(value + 1);
-          }, 10000 / maxValue);
-        }
-
-        countDisplay.textContent = String(value + 1);
-      }, 3000 / maxValue);
-    }
+      countDisplay.textContent = Math.round(value);
+      value +=step;
+    }, speed);
+  }
 
 
 
-
+  function createApp() {
     const counters = document.querySelectorAll('.section-number__title');
 
-    scrollActive(counters[0]);
-    scrollActive(counters[1]);
-    scrollActive(counters[2]);
+    window.addEventListener('scroll', () => {
+      counters.forEach(count => {
+        if ((count.getBoundingClientRect().y - window.innerHeight) < 0 && count.classList.contains('true')) {
 
-    function scrollActive(count) {
-      window.addEventListener('scroll', () => {
-
-        if (((count.getBoundingClientRect().y - window.innerHeight) < 0) && count.classList.contains('_true')) {
-
-          count.classList.remove('_true');
-          counter(+count.textContent, count);
+          count.classList.remove('true');
+          counter(+count.textContent, count, 30, 1500);
         }
-      });
-    }
+      })
+    })
+  }
 
 
+  function showPlus(container) {
+    container.nextElementSibling.style.opacity = '1';
 
-    
+    // console.log(container.nextElementSibling);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    createApp()
   })
 })();

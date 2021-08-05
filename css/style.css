@@ -574,6 +574,7 @@ textarea {
 .section-rate__content
 {
   display: flex;
+  justify-content: space-between;
 }
 
 
@@ -643,6 +644,11 @@ textarea {
   color: #A83837;
 }
 
+.description-item.highlighted
+{
+  font-weight: 600;
+}
+
 .description-item
 {
   font-weight: normal;
@@ -697,6 +703,12 @@ textarea {
 {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.rate-target__count
+{
+  position: relative;
 }
 
 .rate-body__submit:hover

@@ -35,6 +35,15 @@
        url('../fonts/montserrat-v15-latin_cyrillic-600.woff') format('woff'); /* Modern Browsers */
 }
 
+/* montserrat-800 - latin_cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/Montserrat-ExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+  url('../fonts/Montserrat-ExtraBold.woff') format('woff'); /* Modern Browsers */
+}
+
 * {
   box-sizing: border-box;
 }
@@ -100,7 +109,7 @@ textarea {
 .section__higlighted
 {
   color: #25476D;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 
@@ -565,18 +574,40 @@ textarea {
 .section-rate__content
 {
   display: flex;
+  justify-content: space-between;
 }
 
 
 .section-rate__item
 {
   width: 213px;
-  height: 796px;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-rate__item:nth-child(2) .section-rate__header
+{
+  background-color: #C88630;
+}
+
+.section-rate__item:nth-child(3) .section-rate__header
+{
+  background-color: #ACBED0;
+}
+
+.section-rate__item:nth-child(4) .section-rate__header
+{
+  background-color: #363A6D;
+}
+
+.section-rate__item:nth-child(5) .section-rate__header
+{
+  background-color: #254F5A;
 }
 
 .section-rate__header
 {
-  height: 96px;
+  min-height: 96px;
   background-color: #A83837;
   border: 1px solid #B0B0B0;
   box-sizing: border-box;
@@ -605,6 +636,7 @@ textarea {
 .rate-body__description ul
 {
   list-style: square;
+  padding-left: 25px;
 }
 
 .rate-body__description ul li
@@ -612,15 +644,88 @@ textarea {
   color: #A83837;
 }
 
+.description-item.highlighted
+{
+  font-weight: 600;
+}
+
 .description-item
 {
   font-weight: normal;
   line-height: 32px;
+  font-size: 13px;
   color: #000000;
 }
 
 .section-rate__body
 {
   padding: 10px;
+  border: 1px solid #B0B0B0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 0px 50px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
 
+.rate-body__price .price-count
+{
+  font-size: 30px;
+}
+
+.rate-body__price
+{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.rate-body__targer .rate-target__count
+{
+  font-size: 26px;
+}
+
+.rate-body__targer
+{
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.target-container__content
+{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.rate-target__count
+{
+  position: relative;
+}
+
+.rate-body__submit:hover
+{
+  cursor: pointer;
+}
+
+.rate-body__submit
+{
+  font-family: Montserrat;
+  font-weight: normal;
+  font-size: 18px;
+  text-align: center;
+  background: #FFCC00;
+  border: 2px solid #FFFFFF;
+  box-shadow: 0px 0px 0px 3px #ffcc00;
+  border-radius: 50px;
+  margin: 20px;
+  line-height: 50px;
+}
